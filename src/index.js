@@ -1,30 +1,28 @@
 import Phaser from "phaser";
-import io from "socket.io-client";
+import config from "./config/config";
+import { WaitingRoom } from "./scenes/WaitingRoom";
 
-const config = {
-  type: Phaser.AUTO,
-  width: 800,
-  height: 600,
-  physics: {
-    default: 'arcade',
-    arcade: {
-      gravity: { y: 200 }
-    }
-  },
-  scene: {
-    preload: preload,
-    create: create
+
+
+class Game extends Phaser.Game {
+  constructor() {
+    super(config);
+    this.scene.add("WaitingRoom", WaitingRoom);
+    this.scene.start("WaitingRoom");
   }
+}
+
+
+window.onload = function () {
+  window.game = new Game();
 };
 
-new Phaser.Game(config);
+//  preload () {
+//   this.load.image('sky', 'assets/sky.png');
+// }
 
-function preload () {
-  this.load.image('sky', 'assets/sky.png');
-}
-
-function create () {
-  this.add.image(400, 300, 'sky');
-  this.socket = io();
+//  create () {
+//   this.add.image(400, 300, 'sky');
+//   this.socket = io();
   
-}
+// }
