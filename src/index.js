@@ -1,4 +1,3 @@
-
 import Phaser from "phaser";
 import io from "socket.io-client";
 
@@ -26,5 +25,6 @@ function preload () {
 
 function create () {
   this.add.image(400, 300, 'sky');
+  this.socket = io();
   
 }
