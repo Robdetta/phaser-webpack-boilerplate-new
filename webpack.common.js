@@ -35,24 +35,24 @@ module.exports = {
       }
     ]
   },
-  devServer: {
-    contentBase: path.resolve(__dirname, 'build'),
-    compress: true,
-    port: 8080,
-  },
+  // devServer: {
+  //   contentBase: path.resolve(__dirname, 'build'),
+  //   compress: true,
+  //   port: 8080,
+  // },
   plugins: [
     new webpack.DefinePlugin({
       'CANVAS_RENDERER': JSON.stringify(true),
       'WEBGL_RENDERER': JSON.stringify(true)
     }),
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: './public/index.html'
     }),
     new CopyPlugin({
       patterns: [
         {
-          from: path.resolve(__dirname, 'assets/**/*'),
-          to: path.resolve(__dirname, 'build')
+          from: path.resolve(__dirname, 'assets'),
+          to: path.resolve(__dirname, 'build/assets')
         }
       ],
     }),

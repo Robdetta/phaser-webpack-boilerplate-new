@@ -1,5 +1,6 @@
 
 import Phaser from "phaser";
+import io from "socket.io-client";
 
 const config = {
   type: Phaser.AUTO,
@@ -25,4 +26,5 @@ function preload () {
 
 function create () {
   this.add.image(400, 300, 'sky');
+  
 }
